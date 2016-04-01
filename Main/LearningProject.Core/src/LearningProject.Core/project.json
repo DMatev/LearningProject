@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "description": "LearningProject.Core",
+  "authors": [ "deyan" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnxcore50": { }
+  },
+
+  "dependencies": {
+    "LearningProject.Core.Service": "1.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "LearningProject.Core.BusinessLogic",
+  "authors": [ "deyan" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnxcore50": { }
+  },
+
+  "dependencies": {
+    "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+    "LearningProject.Core.Domain": "1.0.0"
+  }
+}
