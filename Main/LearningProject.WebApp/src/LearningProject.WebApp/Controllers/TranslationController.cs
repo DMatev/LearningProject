@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 namespace LearningProject.WebApp.Controllers {
     [Route("api/[controller]")]
     public class TranslationController : Controller {
-        private readonly IMessagesModuleService _messagesModuleService;
+        private readonly IMessagesService _messagesService;
         private readonly IOperationResult _operationResult;
 
-        public TranslationController(IMessagesModuleService messagesModuleService, IOperationResult operationResult) {
-            _messagesModuleService = messagesModuleService;
+        public TranslationController(IMessagesService messagesService, IOperationResult operationResult) {
+            _messagesService = messagesService;
             _operationResult = operationResult;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IEnumerable<TranslationDTO>> Get(byte id) {
-            var translations = await _messagesModuleService.GetTranslations(id);
+        [HttpGet("{langugeID}")]
+        public async Task<IEnumerable<TranslationDTO>> Get(byte langugeID) {
+            var translations = await _messagesService.GetTranslations(langugeID);
             return translations;
         }
     }

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 namespace LearningProject.WebApp.Controllers {
     [Route("api/[controller]")]
     public class LanguageController : Controller {
-        private readonly IMessagesModuleService _messagesModuleService;
+        private readonly IMessagesService _messagesService;
         private readonly IOperationResult _operationResult;
 
-        public LanguageController(IMessagesModuleService messagesModuleService, IOperationResult operationResult) {
-            _messagesModuleService = messagesModuleService;
+        public LanguageController(IMessagesService messagesService, IOperationResult operationResult) {
+            _messagesService = messagesService;
             _operationResult = operationResult;
         }
 
         [HttpGet]
         public async Task<IEnumerable<LanguageDTO>> Get() {
-            var languages = await _messagesModuleService.GetLanguages();
+            var languages = await _messagesService.GetLanguages();
             return languages;
         }
     }
