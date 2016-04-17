@@ -7,6 +7,5 @@ namespace LearningProject.Core.BusinessLogic.OperationResult.Interfaces {
         List<OperationError> Errors { get; }
         void ClearErrors();
         void AddError(string messageCode, string[] messageParams = null, bool throwException = true);
-        void AddError(string messageCode, bool throwException = true);
     }
 }

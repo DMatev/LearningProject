@@ -123,6 +123,13 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
+        }
+      },
       "LearningProject.Core.Domain/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
@@ -1388,6 +1395,13 @@
         },
         "runtime": {
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
+        }
+      },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
         }
       },
       "LearningProject.Core.Domain/1.0.0": {
@@ -3164,6 +3178,13 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
+        }
+      },
       "LearningProject.Core.Domain/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
@@ -4819,6 +4840,10 @@
     }
   },
   "libraries": {
+    "LearningProject.Core.Abstraction/1.0.0": {
+      "type": "project",
+      "path": "../LearningProject.Core.Abstraction/project.json"
+    },
     "LearningProject.Core.Domain/1.0.0": {
       "type": "project",
       "path": "../LearningProject.Core.Domain/project.json"
@@ -8227,6 +8252,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.Extensions.DependencyInjection >= 1.0.0-rc1-final",
+      "LearningProject.Core.Abstraction >= 1.0.0",
       "LearningProject.Core.Domain >= 1.0.0",
       "LearningProject.Core.DTO >= 1.0.0"
     ],

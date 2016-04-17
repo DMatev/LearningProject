@@ -123,10 +123,18 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
+        }
+      },
       "LearningProject.Core.BusinessLogic/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "LearningProject.Core.Abstraction": "1.0.0",
           "LearningProject.Core.Domain": "1.0.0",
           "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
@@ -157,14 +165,6 @@
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
           "System.Threading": "4.0.11-beta-23516"
-        }
-      },
-      "LearningProject.Core.Service/1.0.0": {
-        "type": "project",
-        "framework": "DNXCore,Version=v5.0",
-        "dependencies": {
-          "LearningProject.Core.BusinessLogic": "1.0.0",
-          "LearningProject.Core.DTO": "1.0.0"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -1407,10 +1407,18 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
+        }
+      },
       "LearningProject.Core.BusinessLogic/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "LearningProject.Core.Abstraction": "1.0.0",
           "LearningProject.Core.Domain": "1.0.0",
           "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
@@ -1441,14 +1449,6 @@
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
           "System.Threading": "4.0.11-beta-23516"
-        }
-      },
-      "LearningProject.Core.Service/1.0.0": {
-        "type": "project",
-        "framework": "DNXCore,Version=v5.0",
-        "dependencies": {
-          "LearningProject.Core.BusinessLogic": "1.0.0",
-          "LearningProject.Core.DTO": "1.0.0"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -3198,10 +3198,18 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "LearningProject.Core.Abstraction/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516"
+        }
+      },
       "LearningProject.Core.BusinessLogic/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "LearningProject.Core.Abstraction": "1.0.0",
           "LearningProject.Core.Domain": "1.0.0",
           "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
@@ -3232,14 +3240,6 @@
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
           "System.Threading": "4.0.11-beta-23516"
-        }
-      },
-      "LearningProject.Core.Service/1.0.0": {
-        "type": "project",
-        "framework": "DNXCore,Version=v5.0",
-        "dependencies": {
-          "LearningProject.Core.BusinessLogic": "1.0.0",
-          "LearningProject.Core.DTO": "1.0.0"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -4870,6 +4870,10 @@
     }
   },
   "libraries": {
+    "LearningProject.Core.Abstraction/1.0.0": {
+      "type": "project",
+      "path": "../LearningProject.Core.Abstraction/project.json"
+    },
     "LearningProject.Core.BusinessLogic/1.0.0": {
       "type": "project",
       "path": "../LearningProject.Core.BusinessLogic/project.json"
@@ -4881,10 +4885,6 @@
     "LearningProject.Core.DTO/1.0.0": {
       "type": "project",
       "path": "../LearningProject.Core.DTO/project.json"
-    },
-    "LearningProject.Core.Service/1.0.0": {
-      "type": "project",
-      "path": "../LearningProject.Core.Service/project.json"
     },
     "EntityFramework.Commands/7.0.0-rc1-final": {
       "type": "package",
@@ -8285,7 +8285,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "LearningProject.Core.Service >= 1.0.0",
+      "LearningProject.Core.Abstraction >= 1.0.0",
+      "LearningProject.Core.BusinessLogic >= 1.0.0",
       "LearningProject.Core.DTO >= 1.0.0"
     ],
     "DNXCore,Version=v5.0": []

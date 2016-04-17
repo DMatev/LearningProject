@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "LearningProject.Core.Abstraction",
+  "authors": [ "deyan" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnxcore50": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23516"
+      }
+    }
+  }
+}

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace LearningProject.Core.BusinessLogic.Messages.Implementations {
     public class MessagesBusinessLogic : IMessagesBusinessLogic {
 
-        private readonly LearningProjectContext _context;
         private readonly IOperationResult _operationResult;
+        private readonly LearningProjectContext _context;
 
-        public MessagesBusinessLogic(LearningProjectContext learningProjectContext, IOperationResult operationResult) {
-            _context = learningProjectContext;
+        public MessagesBusinessLogic(IOperationResult operationResult, LearningProjectContext learningProjectContext) {
             _operationResult = operationResult;
+            _context = learningProjectContext;
         }
 
         public async Task<IEnumerable<LanguageDTO>> GetLanguages() {

@@ -18,6 +18,7 @@
 
   "dependencies": {
     "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+    "LearningProject.Core.Abstraction": "1.0.0",
     "LearningProject.Core.Domain": "1.0.0",
     "LearningProject.Core.DTO": "1.0.0"
   }

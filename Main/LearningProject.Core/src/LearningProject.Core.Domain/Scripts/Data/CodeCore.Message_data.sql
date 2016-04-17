@@ -1,1 +1,1 @@
-﻿INSERT INTO [CodeCore].[Message] ([MessageCode]) VALUES (N'OK');
+﻿INSERT INTO [CodeCore].[Message] ([MessageCode]) VALUES (N'MissingLangauge');

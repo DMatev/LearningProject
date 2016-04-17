@@ -15,8 +15,10 @@
       "System.Threading": "4.0.11-beta-23516"
     }
   },
+
   "dependencies": {
-    "LearningProject.Core.Service": "1.0.0",
+    "LearningProject.Core.Abstraction": "1.0.0",
+    "LearningProject.Core.BusinessLogic": "1.0.0",
     "LearningProject.Core.DTO": "1.0.0"
   }
 }
