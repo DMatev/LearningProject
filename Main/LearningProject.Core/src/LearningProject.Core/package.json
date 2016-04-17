@@ -1,0 +1,12 @@
+{
+	"version": "1.0.0",
+	"name": "LearningProject.Core",
+	"private": true,
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-shell": "0.5.2",
+    "rimraf": "2.5.2",
+    "nuget-runner": "0.1.8",
+    "q": "1.4.1"
+  }
+}

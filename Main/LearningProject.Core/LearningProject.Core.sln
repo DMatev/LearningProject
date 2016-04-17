@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}"
 EndProject
@@ -54,22 +54,22 @@ Global
 		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://deyanmatev.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = src\\LearningProject.Core\\LearningProject.Core.xproj
-		SccProjectTopLevelParentUniqueName0 = LearningProject.Core.sln
-		SccProjectName0 = src/LearningProject.Core
-		SccLocalPath0 = src\\LearningProject.Core
-		SccProjectUniqueName1 = src\\LearningProject.Core.Service\\LearningProject.Core.Service.xproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\LearningProject.Core\\LearningProject.Core.xproj
 		SccProjectTopLevelParentUniqueName1 = LearningProject.Core.sln
-		SccProjectName1 = src/LearningProject.Core.Service
-		SccLocalPath1 = src\\LearningProject.Core.Service
-		SccProjectUniqueName2 = src\\LearningProject.Core.BusinessLogic\\LearningProject.Core.BusinessLogic.xproj
+		SccProjectName1 = src/LearningProject.Core
+		SccLocalPath1 = src\\LearningProject.Core
+		SccProjectUniqueName2 = src\\LearningProject.Core.Service\\LearningProject.Core.Service.xproj
 		SccProjectTopLevelParentUniqueName2 = LearningProject.Core.sln
-		SccProjectName2 = src/LearningProject.Core.BusinessLogic
-		SccLocalPath2 = src\\LearningProject.Core.BusinessLogic
-		SccProjectUniqueName3 = src\\LearningProject.Core.Domain\\LearningProject.Core.Domain.xproj
+		SccProjectName2 = src/LearningProject.Core.Service
+		SccLocalPath2 = src\\LearningProject.Core.Service
+		SccProjectUniqueName3 = src\\LearningProject.Core.BusinessLogic\\LearningProject.Core.BusinessLogic.xproj
 		SccProjectTopLevelParentUniqueName3 = LearningProject.Core.sln
-		SccProjectName3 = src/LearningProject.Core.Domain
-		SccLocalPath3 = src\\LearningProject.Core.Domain
-		SccLocalPath4 = .
+		SccProjectName3 = src/LearningProject.Core.BusinessLogic
+		SccLocalPath3 = src\\LearningProject.Core.BusinessLogic
+		SccProjectUniqueName4 = src\\LearningProject.Core.Domain\\LearningProject.Core.Domain.xproj
+		SccProjectTopLevelParentUniqueName4 = LearningProject.Core.sln
+		SccProjectName4 = src/LearningProject.Core.Domain
+		SccLocalPath4 = src\\LearningProject.Core.Domain
 	EndGlobalSection
 EndGlobal

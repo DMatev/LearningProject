@@ -8136,13 +8136,13 @@
     }
   },
   "projectFileDependencyGroups": {
-    "": [
+    "": [],
+    "DNXCore,Version=v5.0": [
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer.Design >= 7.0.0-rc1-final",
       "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc1-final"
-    ],
-    "DNXCore,Version=v5.0": []
+    ]
   }
 }

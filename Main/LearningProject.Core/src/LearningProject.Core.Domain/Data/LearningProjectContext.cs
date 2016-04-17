@@ -28,9 +28,9 @@ namespace LearningProject.Core.Domain.Data {
             modelBuilder.Entity<Message>(entity => {
                 entity.HasKey(e => e.MessageCode);
 
-                entity.ToTable("Message", "Core");
+                entity.ToTable("Message", "CodeCore");
 
-                entity.Property(e => e.MessageCode).HasMaxLength(200);
+                entity.Property(e => e.MessageCode).HasMaxLength(100);
 
                 entity.Property(e => e.RowRevision)
                     .IsRequired()
@@ -51,7 +51,7 @@ namespace LearningProject.Core.Domain.Data {
 
                 entity.Property(e => e.MessageCode)
                     .IsRequired()
-                    .HasMaxLength(200);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.RowRevision)
                     .IsRequired()

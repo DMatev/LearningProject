@@ -13,7 +13,8 @@ namespace LearningProject.Core.Service.Messages.Implementations {
         }
 
         public async Task<IEnumerable<string>> GetLanguages() {
-            return await _messagesBussinessLogic.GetLanguages();
+            var languages = await _messagesBussinessLogic.GetLanguages();
+            return languages;
         }
     }
 }
