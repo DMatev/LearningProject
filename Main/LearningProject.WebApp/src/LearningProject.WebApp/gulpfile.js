@@ -2,7 +2,8 @@
 "use strict";
 
 var gulp = require("gulp"),
-    rimraf = require("rimraf"),
+    shell = require('gulp-shell'),
+    rimraf = require('rimraf'),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify");
@@ -24,6 +25,17 @@ gulp.task("clean:js", function (cb) {
 
 gulp.task("clean:css", function (cb) {
     rimraf(paths.concatCssDest, cb);
+});
+
+gulp.task('clear-cache', function () {
+    var dnxPath = process.env.USERPROFILE + '\\.dnx\\packages\\LearningProject.Core';
+
+    shell.task(['dnu clear-http-cache']);
+    rimraf(dnxPath, function () {
+        rimraf(dnxPath + '.*', function () {
+            console.log('cache cleaned');
+        });
+    });
 });
 
 gulp.task("clean", ["clean:js", "clean:css"]);
