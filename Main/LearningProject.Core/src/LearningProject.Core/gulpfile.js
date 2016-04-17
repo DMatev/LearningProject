@@ -18,12 +18,14 @@ config = {
         'LearningProject.Core',
         'LearningProject.Core.BusinessLogic',
         'LearningProject.Core.Domain',
-        'LearningProject.Core.Service'
+        'LearningProject.Core.DTO',
+        'LearningProject.Core.Service',
     ],
     nugetPackagesPath: [
         'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core\\Debug\\LearningProject.Core.1.0.0.symbols.nupkg',
         'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.BusinessLogic\\Debug\\LearningProject.Core.BusinessLogic.1.0.0.symbols.nupkg',
         'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.Domain\\Debug\\LearningProject.Core.Domain.1.0.0.symbols.nupkg',
+        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.DTO\\Debug\\LearningProject.Core.DTO.1.0.0.symbols.nupkg',
         'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.Service\\Debug\\LearningProject.Core.Service.1.0.0.symbols.nupkg'
     ]
 };

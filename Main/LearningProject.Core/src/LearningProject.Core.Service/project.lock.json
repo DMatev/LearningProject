@@ -128,6 +128,7 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "LearningProject.Core.Domain": "1.0.0",
+          "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
@@ -138,8 +139,24 @@
           "EntityFramework.Commands": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
+      "LearningProject.Core.DTO/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -1387,6 +1404,7 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "LearningProject.Core.Domain": "1.0.0",
+          "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
@@ -1397,8 +1415,24 @@
           "EntityFramework.Commands": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
+      "LearningProject.Core.DTO/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -3153,6 +3187,7 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "LearningProject.Core.Domain": "1.0.0",
+          "LearningProject.Core.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
@@ -3163,8 +3198,24 @@
           "EntityFramework.Commands": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
           "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
+      "LearningProject.Core.DTO/1.0.0": {
+        "type": "project",
+        "framework": "DNXCore,Version=v5.0",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -4802,6 +4853,10 @@
     "LearningProject.Core.Domain/1.0.0": {
       "type": "project",
       "path": "../LearningProject.Core.Domain/project.json"
+    },
+    "LearningProject.Core.DTO/1.0.0": {
+      "type": "project",
+      "path": "../LearningProject.Core.DTO/project.json"
     },
     "EntityFramework.Commands/7.0.0-rc1-final": {
       "type": "package",
@@ -8202,7 +8257,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "LearningProject.Core.BusinessLogic >= 1.0.0"
+      "LearningProject.Core.BusinessLogic >= 1.0.0",
+      "LearningProject.Core.DTO >= 1.0.0"
     ],
     "DNXCore,Version=v5.0": []
   }
