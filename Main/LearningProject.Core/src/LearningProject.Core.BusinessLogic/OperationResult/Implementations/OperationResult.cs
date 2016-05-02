@@ -27,7 +27,7 @@ namespace LearningProject.Core.BusinessLogic.OperationResult.Implementations {
         public void AddError(string messageCode, string[] messageParams = null, bool throwException = true) {
             errors.Add(new OperationError(messageCode, messageParams));
             if (throwException) {
-                throw new OperationResultException()
+                throw new OperationResultException();
             }
         }
     }

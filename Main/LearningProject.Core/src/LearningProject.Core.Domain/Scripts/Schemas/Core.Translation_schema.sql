@@ -1,4 +1,6 @@
-﻿CREATE TABLE [Core].[Translation](
+﻿USE [LearningProject]
+GO
+CREATE TABLE [Core].[Translation](
    [TranslationID] UNIQUEIDENTIFIER NOT NULL CONSTRAINT PK_TranslationID PRIMARY KEY ([TranslationID]), 
    [MessageCode] NVARCHAR(100) NOT NULL CONSTRAINT FK_Translation_Message FOREIGN KEY REFERENCES [CodeCore].[Message]([MessageCode]),
    [Content]  NVARCHAR(400) NOT NULL,
