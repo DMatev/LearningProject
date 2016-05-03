@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace LearningProject.Core.Domain.Data {
-    public partial class Language {
-        public Language() {
+namespace LearningProject.Core.Domain.Data
+{
+    public partial class Language
+    {
+        public Language()
+        {
             Translation = new HashSet<Translation>();
         }
 

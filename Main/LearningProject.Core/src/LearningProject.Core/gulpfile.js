@@ -8,7 +8,6 @@ var exec = require('child_process').exec,
     nugetRunner = require('nuget-runner'),
     path = require('path'),
     rimraf = require('rimraf'),
-    runSequence = require('run-sequence'),
     SQLScriptsPath;
 
 nugetConfig = {
@@ -79,12 +78,8 @@ gulp.task('upload-nugetPackages', function () {
     pushNugetPackage();
 });
 
-gulp.task('refresh-nugetPackages', function () {
-    runSequence(['remove-nugetPackages', 'upload-nugetPackages']);
-});
-
-gulp.task('dropDB', function () {
-    var sqlFile = path.join(SQLScriptsPath, '\\Init\\Core.Init_dropDb.sql');
+gulp.task('initDB', function () {
+    var sqlFile = path.join(SQLScriptsPath, '\\Init\\Core.Init.sql');
     exec('sqlcmd -i ' + sqlFile, function (err, stdout, stderr) {
         if (err) {
             console.log(err);
@@ -93,35 +88,6 @@ gulp.task('dropDB', function () {
             console.log(stderr);
         }
         console.log(stdout);
-        console.log('Database dropped');
-    });
-});
-
-gulp.task('createDB', function () {
-    var sqlFile = path.join(SQLScriptsPath, '\\Init\\Core.Init_createDb.sql');
-    exec('sqlcmd -i ' + sqlFile, function (err, stdout, stderr) {
-        if (err) {
-            console.log(err);
-        }
-        if (stderr) {
-            console.log(stderr);
-        }
-        console.log(stdout);
-        console.log('Database created');
-    });
-});
-
-gulp.task('createSchema', function () {
-    var sqlFile = path.join(SQLScriptsPath, '\\Init\\Core.Init_schema.sql');
-    exec('sqlcmd -i ' + sqlFile, function (err, stdout, stderr) {
-        if (err) {
-            console.log(err);
-        }
-        if (stderr) {
-            console.log(stderr);
-        }
-        console.log(stdout);
-        console.log('Schema created');
     });
 });
 

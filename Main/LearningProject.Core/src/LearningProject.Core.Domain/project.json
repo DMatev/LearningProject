@@ -29,7 +29,7 @@
 
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Data Source=MONSTER\\SQLEXPRESS;Initial Catalog=LearningProject;Integrated Security=True"
+      "ConnectionString": "Data Source=AIVA;Initial Catalog=LearningProject;Integrated Security=True"
     }
   }
 }

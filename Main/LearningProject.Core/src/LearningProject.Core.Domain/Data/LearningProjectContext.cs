@@ -1,19 +1,22 @@
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 
-namespace LearningProject.Core.Domain.Data {
-    public partial class LearningProjectContext : DbContext {
-        protected override void OnConfiguring(DbContextOptionsBuilder options) {
-            options.UseSqlServer(@"Data Source=MONSTER\SQLEXPRESS;Initial Catalog=LearningProject;Integrated Security=True");
+namespace LearningProject.Core.Domain.Data
+{
+    public partial class LearningProjectContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=AIVA;Database=LearningProject;Trusted_Connection=True;");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<Language>(entity => {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Language>(entity =>
+            {
                 entity.ToTable("Language", "CodeCore");
 
                 entity.HasIndex(e => e.CountryISOCode).HasName("UK_Language").IsUnique();
-
-                entity.Property(e => e.LanguageID).ValueGeneratedNever();
 
                 entity.Property(e => e.CountryISOCode)
                     .IsRequired()
@@ -25,7 +28,8 @@ namespace LearningProject.Core.Domain.Data {
                     .ValueGeneratedOnAddOrUpdate();
             });
 
-            modelBuilder.Entity<Message>(entity => {
+            modelBuilder.Entity<Message>(entity =>
+            {
                 entity.HasKey(e => e.MessageCode);
 
                 entity.ToTable("Message", "CodeCore");
@@ -38,12 +42,11 @@ namespace LearningProject.Core.Domain.Data {
                     .ValueGeneratedOnAddOrUpdate();
             });
 
-            modelBuilder.Entity<Translation>(entity => {
+            modelBuilder.Entity<Translation>(entity =>
+            {
                 entity.ToTable("Translation", "Core");
 
                 entity.HasIndex(e => new { e.LanguageID, e.MessageCode }).HasName("UC_Translation").IsUnique();
-
-                entity.Property(e => e.TranslationID).ValueGeneratedNever();
 
                 entity.Property(e => e.Content)
                     .IsRequired()

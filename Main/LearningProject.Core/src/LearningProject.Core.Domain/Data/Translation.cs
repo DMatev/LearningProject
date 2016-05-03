@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace LearningProject.Core.Domain.Data {
-    public partial class Translation {
-        public Guid TranslationID { get; set; }
+namespace LearningProject.Core.Domain.Data
+{
+    public partial class Translation
+    {
+        public int TranslationID { get; set; }
         public string Content { get; set; }
         public byte LanguageID { get; set; }
         public string MessageCode { get; set; }
