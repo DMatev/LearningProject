@@ -7,20 +7,21 @@
   "licenseUrl": "",
 
   "frameworks": {
-    "dnxcore50": {
-      "dependencies": {
-        "Microsoft.CSharp": "4.0.1-beta-23516",
-        "System.Collections": "4.0.11-beta-23516",
-        "System.Linq": "4.0.1-beta-23516",
-        "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516",
-        "EntityFramework.Commands": "7.0.0-rc1-final",
-        "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
-        "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
-        "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
-        "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
-      }
-    }
+    "dnxcore50": { },
+    "dnx451": { }
+  },
+
+  "dependencies": {
+    "Microsoft.CSharp": "4.0.1-beta-23516",
+    "System.Collections": "4.0.11-beta-23516",
+    "System.Linq": "4.0.1-beta-23516",
+    "System.Runtime": "4.0.21-beta-23516",
+    "System.Threading": "4.0.11-beta-23516",
+    "EntityFramework.Commands": "7.0.0-rc1-final",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+    "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
   },
 
   "commands": {
@@ -29,7 +30,7 @@
 
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Data Source=AIVA;Initial Catalog=LearningProject;Integrated Security=True"
+      "ConnectionString": "Data Source=localhost\\SqlExpress;Initial Catalog=LearningProject;Integrated Security=True"
     }
   }
 }

@@ -8,9 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2771538B-B664-4CBD-96F1-B7A5756A68A1}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		NuGet.config = NuGet.config
 	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core", "src\LearningProject.Core\LearningProject.Core.xproj", "{EEB599F5-C5F7-4354-B392-2B10F69F452A}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core.BusinessLogic", "src\LearningProject.Core.BusinessLogic\LearningProject.Core.BusinessLogic.xproj", "{5387C7BB-4FB9-4822-964C-11700A90D1F2}"
 EndProject
@@ -20,16 +19,16 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core.DTO", 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core.Abstraction", "src\LearningProject.Core.Abstraction\LearningProject.Core.Abstraction.xproj", "{6DA5547F-448A-41A2-889E-7C433122E2B5}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core.WebApp", "src\LearningProject.Core.WebApp\LearningProject.Core.WebApp.xproj", "{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LearningProject.Core.Service", "src\LearningProject.Core.Service\LearningProject.Core.Service.xproj", "{6249BD28-5A9F-43E0-8678-399F5ADBD9FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EEB599F5-C5F7-4354-B392-2B10F69F452A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEB599F5-C5F7-4354-B392-2B10F69F452A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEB599F5-C5F7-4354-B392-2B10F69F452A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEB599F5-C5F7-4354-B392-2B10F69F452A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5387C7BB-4FB9-4822-964C-11700A90D1F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5387C7BB-4FB9-4822-964C-11700A90D1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5387C7BB-4FB9-4822-964C-11700A90D1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,41 +45,54 @@ Global
 		{6DA5547F-448A-41A2-889E-7C433122E2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DA5547F-448A-41A2-889E-7C433122E2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DA5547F-448A-41A2-889E-7C433122E2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EEB599F5-C5F7-4354-B392-2B10F69F452A} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 		{5387C7BB-4FB9-4822-964C-11700A90D1F2} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 		{25796376-D740-45AC-BC20-8A604EE1A352} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 		{ABA9F32A-CB57-4781-A3E6-64B32535AA15} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 		{6DA5547F-448A-41A2-889E-7C433122E2B5} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
+		{68BA7BF9-BFE2-47D4-997C-11D6B8604B4A} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
+		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
+		SccNumberOfProjects = 7
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://deyanmatev.visualstudio.com/defaultcollection
+		SccTeamFoundationServer = https://deyanmatev.visualstudio.com/
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = src\\LearningProject.Core\\LearningProject.Core.xproj
+		SccProjectUniqueName1 = src\\LearningProject.Core.BusinessLogic\\LearningProject.Core.BusinessLogic.xproj
 		SccProjectTopLevelParentUniqueName1 = LearningProject.Core.sln
-		SccProjectName1 = src/LearningProject.Core
-		SccLocalPath1 = src\\LearningProject.Core
-		SccProjectUniqueName2 = src\\LearningProject.Core.BusinessLogic\\LearningProject.Core.BusinessLogic.xproj
+		SccProjectName1 = src/LearningProject.Core.BusinessLogic
+		SccLocalPath1 = src\\LearningProject.Core.BusinessLogic
+		SccProjectUniqueName2 = src\\LearningProject.Core.Domain\\LearningProject.Core.Domain.xproj
 		SccProjectTopLevelParentUniqueName2 = LearningProject.Core.sln
-		SccProjectName2 = src/LearningProject.Core.BusinessLogic
-		SccLocalPath2 = src\\LearningProject.Core.BusinessLogic
-		SccProjectUniqueName3 = src\\LearningProject.Core.Domain\\LearningProject.Core.Domain.xproj
+		SccProjectName2 = src/LearningProject.Core.Domain
+		SccLocalPath2 = src\\LearningProject.Core.Domain
+		SccProjectUniqueName3 = src\\LearningProject.Core.DTO\\LearningProject.Core.DTO.xproj
 		SccProjectTopLevelParentUniqueName3 = LearningProject.Core.sln
-		SccProjectName3 = src/LearningProject.Core.Domain
-		SccLocalPath3 = src\\LearningProject.Core.Domain
-		SccProjectUniqueName4 = src\\LearningProject.Core.DTO\\LearningProject.Core.DTO.xproj
+		SccProjectName3 = src/LearningProject.Core.DTO
+		SccLocalPath3 = src\\LearningProject.Core.DTO
+		SccProjectUniqueName4 = src\\LearningProject.Core.Abstraction\\LearningProject.Core.Abstraction.xproj
 		SccProjectTopLevelParentUniqueName4 = LearningProject.Core.sln
-		SccProjectName4 = src/LearningProject.Core.DTO
-		SccLocalPath4 = src\\LearningProject.Core.DTO
-		SccProjectUniqueName5 = src\\LearningProject.Core.Abstraction\\LearningProject.Core.Abstraction.xproj
+		SccProjectName4 = src/LearningProject.Core.Abstraction
+		SccLocalPath4 = src\\LearningProject.Core.Abstraction
+		SccProjectUniqueName5 = src\\LearningProject.Core.WebApp\\LearningProject.Core.WebApp.xproj
 		SccProjectTopLevelParentUniqueName5 = LearningProject.Core.sln
-		SccProjectName5 = src/LearningProject.Core.Abstraction
-		SccLocalPath5 = src\\LearningProject.Core.Abstraction
+		SccProjectName5 = src/LearningProject.Core.WebApp
+		SccLocalPath5 = src\\LearningProject.Core.WebApp
+		SccProjectUniqueName6 = src\\LearningProject.Core.Service\\LearningProject.Core.Service.xproj
+		SccProjectTopLevelParentUniqueName6 = LearningProject.Core.sln
+		SccProjectName6 = src/LearningProject.Core.Service
+		SccLocalPath6 = src\\LearningProject.Core.Service
 	EndGlobalSection
 EndGlobal
