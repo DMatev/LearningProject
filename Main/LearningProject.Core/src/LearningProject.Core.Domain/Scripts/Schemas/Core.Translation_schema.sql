@@ -1,4 +1,4 @@
-﻿USE [LearningProject]
+﻿USE [LearningProject.Core]
 GO
 CREATE TABLE [Core].[Translation](
    [TranslationID] INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_TranslationID PRIMARY KEY ([TranslationID]),

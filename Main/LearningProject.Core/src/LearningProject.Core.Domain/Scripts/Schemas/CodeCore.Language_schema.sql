@@ -1,4 +1,4 @@
-﻿USE [LearningProject]
+﻿USE [LearningProject.Core]
 GO
 CREATE TABLE [CodeCore].[Language](
 	[LanguageID] TINYINT IDENTITY(1,1) NOT NULL CONSTRAINT PK_LangugeID PRIMARY KEY ([LanguageID]),
