@@ -1,7 +1,7 @@
-﻿using LearningProject.Core.BusinessLogic.OperationResult.Interfaces;
-using LearningProject.Core.DTO.Messages;
+﻿using LearningProject.Core.DTO.Messages;
 using LearningProject.Core.Service.Messages.Interfaces;
-using Microsoft.AspNet.Mvc;
+using LearningProject.Core.Shared.OperationResult.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

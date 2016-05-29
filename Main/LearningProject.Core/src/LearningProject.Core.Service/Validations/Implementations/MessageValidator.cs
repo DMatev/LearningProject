@@ -1,18 +1,16 @@
 ﻿using LearningProject.Core.Abstraction.Enums;
-using LearningProject.Core.BusinessLogic.OperationResult.Interfaces;
 using LearningProject.Core.Service.Validations.Interfaces;
+using LearningProject.Core.Shared.OperationResult.Interfaces;
 
 namespace LearningProject.Core.Service.Validations.Implementations {
-    public class MessageValidator : IMessageValidator {
-        private readonly IOperationResult _operationResult;
+    public class MessageValidator : BaseValidator, IMessageValidator {
 
-        public MessageValidator(IOperationResult operationResult) {
-            _operationResult = operationResult;
+        public MessageValidator(IOperationResult operationResult) : base(operationResult) {
         }
 
         public void ValidateLangauge(byte languageID) {
             if (languageID != 1 && languageID != 2) {
-                _operationResult.AddError(MessageCodes.MissingLangauge);
+                OperationResult.AddError(MessageCodes.MissingLangauge);
             }
         }
     }

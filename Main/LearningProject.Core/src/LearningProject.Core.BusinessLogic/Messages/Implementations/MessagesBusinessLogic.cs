@@ -1,20 +1,18 @@
 ﻿using LearningProject.Core.BusinessLogic.Messages.Interfaces;
-using LearningProject.Core.BusinessLogic.OperationResult.Interfaces;
 using LearningProject.Core.Domain.Data;
 using LearningProject.Core.DTO.Messages;
-using Microsoft.Data.Entity;
+using LearningProject.Core.Shared.OperationResult.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace LearningProject.Core.BusinessLogic.Messages.Implementations {
-    public class MessagesBusinessLogic : IMessagesBusinessLogic {
+    public class MessagesBusinessLogic : BaseBusinessLogic, IMessagesBusinessLogic {
 
-        private readonly IOperationResult _operationResult;
         private readonly LearningProjectContext _context;
 
-        public MessagesBusinessLogic(IOperationResult operationResult, LearningProjectContext learningProjectContext) {
-            _operationResult = operationResult;
+        public MessagesBusinessLogic(IOperationResult operationResult, LearningProjectContext learningProjectContext) : base(operationResult) {
             _context = learningProjectContext;
         }
 

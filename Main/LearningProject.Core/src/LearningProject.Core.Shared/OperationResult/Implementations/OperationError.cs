@@ -1,6 +1,7 @@
-﻿
-namespace LearningProject.Core.BusinessLogic.OperationResult.Implementations {
-    public class OperationError {
+﻿using LearningProject.Core.Shared.OperationResult.Interfaces;
+
+namespace LearningProject.Core.Shared.OperationResult.Implementations {
+    public class OperationError : IOperationError {
         public string MessageCode { get; set; }
         public string[] MessageParams { get; set; }
 

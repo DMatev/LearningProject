@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LearningProject.Core.BusinessLogic.OperationResult.Implementations {
+namespace LearningProject.Core.Shared.OperationResult.Implementations {
     public class OperationResultException : Exception {
         public OperationResultException() {
         }

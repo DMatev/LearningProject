@@ -1,11 +1,11 @@
-﻿using LearningProject.Core.BusinessLogic.OperationResult.Interfaces;
+﻿using LearningProject.Core.Shared.OperationResult.Interfaces;
 using System.Collections.Generic;
 
-namespace LearningProject.Core.BusinessLogic.OperationResult.Implementations {
+namespace LearningProject.Core.Shared.OperationResult.Implementations {
     public class OperationResult : IOperationResult {
-        private List<OperationError> errors = new List<OperationError>();
+        private List<IOperationError> errors = new List<IOperationError>();
 
-        public List<OperationError> Errors {
+        public List<IOperationError> Errors {
             get {
                 return errors;
             }
