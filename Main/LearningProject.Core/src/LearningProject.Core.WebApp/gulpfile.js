@@ -1,4 +1,4 @@
-﻿"use strict";
+﻿'use strict';
 
 var exec = require('child_process').exec,
     fs = require('fs'),
@@ -14,20 +14,14 @@ nugetConfig = {
     packageVersion: '1.0.0',
     nugetSource: 'http://localhost:88/nuget/LearningProject-NuGet',
     apiKey: 'WhiteHatHackers',
-    nugetPath: 'D:\\LearningProject\\Tools\\nuget.exe',
+    nugetPath: path.join(__dirname, '../../../../Tools/nuget.exe'),
     nugetPackages: [
         'LearningProject.Core.Service',
         'LearningProject.Core.Abstraction',
         'LearningProject.Core.BusinessLogic',
         'LearningProject.Core.Domain',
-        'LearningProject.Core.DTO'
-    ],
-    nugetPackagesPath: [
-        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.Service\\Debug\\LearningProject.Core.Service.1.0.0.symbols.nupkg',
-        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.Abstraction\\Debug\\LearningProject.Core.Abstraction.1.0.0.symbols.nupkg',
-        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.BusinessLogic\\Debug\\LearningProject.Core.BusinessLogic.1.0.0.symbols.nupkg',
-        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.Domain\\Debug\\LearningProject.Core.Domain.1.0.0.symbols.nupkg',
-        'D:\\LearningProject\\Main\\LearningProject.Core\\artifacts\\bin\\LearningProject.Core.DTO\\Debug\\LearningProject.Core.DTO.1.0.0.symbols.nupkg'
+        'LearningProject.Core.DTO',
+        'LearningProject.Core.Shared'
     ]
 };
 
@@ -63,6 +57,43 @@ gulp.task('clear-cache', function () {
     });
 });
 
+gulp.task('create-packages', function () {
+    var command = 'dotnet pack ',
+        i = -1;
+
+    function createNugetPackage() {
+        var projectPath;
+
+        i++;
+        projectPath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i]);
+
+        if (i < (nugetConfig.nugetPackages.length - 1)) {
+            exec(command + projectPath, function (err, stdout, stderr) {
+                if (err) {
+                    console.log(err);
+                }
+                if (stderr) {
+                    console.log(stderr);
+                }
+                console.log(stdout);
+                createNugetPackage();
+            });
+        } else {
+            exec(command + projectPath, function (err, stdout, stderr) {
+                if (err) {
+                    console.log(err);
+                }
+                if (stderr) {
+                    console.log(stderr);
+                }
+                console.log(stdout);
+            });
+        }
+    }
+
+    createNugetPackage();
+});
+
 gulp.task('remove-nugetPackages', function () {
     nugetConfig.nugetPackages.forEach(function (packageName) {
         nuget.delete(packageName, nugetConfig.packageVersion);
@@ -73,11 +104,15 @@ gulp.task('upload-nugetPackages', function () {
     var i = -1;
 
     function pushNugetPackage() {
+        var packagePath;
+
         i++;
-        if (i < (nugetConfig.nugetPackagesPath.length - 1)) {
-            nuget.push(nugetConfig.nugetPackagesPath[i]).done(pushNugetPackage)
+        packagePath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i] + '\\bin\\Debug\\' + nugetConfig.nugetPackages[i] + '.' + nugetConfig.packageVersion + '.symbols.nupkg');
+
+        if (i < (nugetConfig.nugetPackages.length - 1)) {
+            nuget.push(packagePath).done(pushNugetPackage)
         } else {
-            nuget.push(nugetConfig.nugetPackagesPath[i]);
+            nuget.push(packagePath);
         }
     }
 
