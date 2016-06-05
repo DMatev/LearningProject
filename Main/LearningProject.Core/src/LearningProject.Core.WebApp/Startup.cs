@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using LearningProject.Core.Service.Dependency;
+using LearningProject.Core.WebApp.Helpers.OperationResult;
 
 namespace LearningProject.Core.WebApp {
     public class Startup {
@@ -22,6 +23,7 @@ namespace LearningProject.Core.WebApp {
         public void ConfigureServices(IServiceCollection services) {
             var dependencies = new ServiceDependency();
             dependencies.Register(services);
+            services.AddScoped<OperationErrorHandler>();
             services.AddMvc();
         }
 
