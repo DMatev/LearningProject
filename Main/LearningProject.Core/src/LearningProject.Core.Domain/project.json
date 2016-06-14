@@ -46,7 +46,7 @@
 
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Data Source=localhost\\SqlExpress;Initial Catalog=LearningProject.Core;Integrated Security=True"
+      "ConnectionString": "Data Source=localhost;Initial Catalog=LearningProject.Core;Integrated Security=True"
     }
   }
 }

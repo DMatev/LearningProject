@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace LearningProject.Core.Domain.Data {
     public partial class LearningProjectContext : DbContext {
         protected override void OnConfiguring(DbContextOptionsBuilder options) {
-            options.UseSqlServer(@"Server=localhost\SqlExpress;Database=LearningProject.Core;Trusted_Connection=True;");
+            options.UseSqlServer(@"Server=localhost;Database=LearningProject.Core;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

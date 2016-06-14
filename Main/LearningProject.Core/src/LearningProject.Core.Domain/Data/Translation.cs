@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace LearningProject.Core.Domain.Data
 {
     public partial class Translation
