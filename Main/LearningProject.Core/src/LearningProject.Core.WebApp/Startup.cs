@@ -32,7 +32,7 @@ namespace LearningProject.Core.WebApp {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
 
     }
