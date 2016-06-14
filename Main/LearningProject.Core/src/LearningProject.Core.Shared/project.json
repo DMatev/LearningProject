@@ -27,5 +27,9 @@
         "portable-net45+win8"
       ]
     }
+  },
+  
+  "buildOptions": {
+     "debugType": "portable"
   }
 }
