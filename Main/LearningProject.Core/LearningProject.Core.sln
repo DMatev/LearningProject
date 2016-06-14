@@ -72,38 +72,4 @@ Global
 		{6249BD28-5A9F-43E0-8678-399F5ADBD9FC} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 		{E29374AA-6751-49BE-881B-2CF4006FC835} = {9DE184C2-9B3C-47DE-AEED-E7DD7E3EDBC9}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://deyanmatev.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = src\\LearningProject.Core.BusinessLogic\\LearningProject.Core.BusinessLogic.xproj
-		SccProjectTopLevelParentUniqueName1 = LearningProject.Core.sln
-		SccProjectName1 = src/LearningProject.Core.BusinessLogic
-		SccLocalPath1 = src\\LearningProject.Core.BusinessLogic
-		SccProjectUniqueName2 = src\\LearningProject.Core.Domain\\LearningProject.Core.Domain.xproj
-		SccProjectTopLevelParentUniqueName2 = LearningProject.Core.sln
-		SccProjectName2 = src/LearningProject.Core.Domain
-		SccLocalPath2 = src\\LearningProject.Core.Domain
-		SccProjectUniqueName3 = src\\LearningProject.Core.DTO\\LearningProject.Core.DTO.xproj
-		SccProjectTopLevelParentUniqueName3 = LearningProject.Core.sln
-		SccProjectName3 = src/LearningProject.Core.DTO
-		SccLocalPath3 = src\\LearningProject.Core.DTO
-		SccProjectUniqueName4 = src\\LearningProject.Core.Abstraction\\LearningProject.Core.Abstraction.xproj
-		SccProjectTopLevelParentUniqueName4 = LearningProject.Core.sln
-		SccProjectName4 = src/LearningProject.Core.Abstraction
-		SccLocalPath4 = src\\LearningProject.Core.Abstraction
-		SccProjectUniqueName5 = src\\LearningProject.Core.WebApp\\LearningProject.Core.WebApp.xproj
-		SccProjectTopLevelParentUniqueName5 = LearningProject.Core.sln
-		SccProjectName5 = src/LearningProject.Core.WebApp
-		SccLocalPath5 = src\\LearningProject.Core.WebApp
-		SccProjectUniqueName6 = src\\LearningProject.Core.Service\\LearningProject.Core.Service.xproj
-		SccProjectTopLevelParentUniqueName6 = LearningProject.Core.sln
-		SccProjectName6 = src/LearningProject.Core.Service
-		SccLocalPath6 = src\\LearningProject.Core.Service
-		SccProjectUniqueName7 = src\\LearningProject.Core.Shared\\LearningProject.Core.Shared.xproj
-		SccProjectTopLevelParentUniqueName7 = LearningProject.Core.sln
-		SccProjectName7 = src/LearningProject.Core.Shared
-		SccLocalPath7 = src\\LearningProject.Core.Shared
-	EndGlobalSection
 EndGlobal
