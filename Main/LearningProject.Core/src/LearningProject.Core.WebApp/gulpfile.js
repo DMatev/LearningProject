@@ -199,6 +199,9 @@ gulp.task('build', function () {
                 if (stderr) {
                     console.log(stderr);
                 }
+                if(err || stderr){
+                    process.exit(1);
+                }
                 console.log(stdout);
                 buildProject();
             });
@@ -209,6 +212,9 @@ gulp.task('build', function () {
                 }
                 if (stderr) {
                     console.log(stderr);
+                }
+                if(err || stderr){
+                    process.exit(1);
                 }
                 console.log(stdout);
             });
