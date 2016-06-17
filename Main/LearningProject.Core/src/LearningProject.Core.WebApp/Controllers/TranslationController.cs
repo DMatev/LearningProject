@@ -17,7 +17,7 @@ namespace LearningProject.Core.WebApp.Controllers {
 
         [HttpGet("{langugeID}")]
         public async Task<IEnumerable<TranslationDTO>> Get(byte langugeID) {
-            var translations = await _messagesService.GetTranslation(langugeID);
+            var translations = await _messagesService.GetTranslations(langugeID);
             return translations;
         }
     }
