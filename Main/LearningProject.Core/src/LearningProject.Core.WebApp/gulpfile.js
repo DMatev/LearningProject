@@ -180,3 +180,40 @@ gulp.task('fillTables', function () {
         });
     });
 });
+
+gulp.task('build', function () {
+    var command = 'dotnet build ',
+        i = -1;
+
+    function buildProject() {
+        var projectPath;
+
+        i++;
+        projectPath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i]);
+
+        if (i < (nugetConfig.nugetPackages.length - 1)) {
+            exec(command + projectPath, function (err, stdout, stderr) {
+                if (err) {
+                    console.log(err);
+                }
+                if (stderr) {
+                    console.log(stderr);
+                }
+                console.log(stdout);
+                buildProject();
+            });
+        } else {
+            exec(command + projectPath, function (err, stdout, stderr) {
+                if (err) {
+                    console.log(err);
+                }
+                if (stderr) {
+                    console.log(stderr);
+                }
+                console.log(stdout);
+            });
+        }
+    }
+
+    buildProject();
+});
