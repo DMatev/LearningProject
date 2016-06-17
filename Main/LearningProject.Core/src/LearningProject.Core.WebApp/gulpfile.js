@@ -184,10 +184,9 @@ gulp.task('fillTables', function () {
 });
 
 gulp.task('build', function () {
-    var command = 'dotnet build ',
-        i = -1;
+    var command = 'dotnet build';
 
-    exec('dotnet build', function (err, stdout, stderr) {
+    exec(command, function (err, stdout, stderr) {
         if (err) {
             console.log(err);
         }
@@ -199,42 +198,4 @@ gulp.task('build', function () {
         }
         console.log(stdout);
     });
-    
-    function buildProject() {
-        var projectPath;
-
-        i++;
-        projectPath = path.join(__dirname, '..\\' + projects[i]);
-
-        if (i < (projects.length - 1)) {
-            exec(command + projectPath, function (err, stdout, stderr) {
-                if (err) {
-                    console.log(err);
-                }
-                if (stderr) {
-                    console.log(stderr);
-                }
-                if (err || stderr) {
-                    process.exit(1);
-                }
-                console.log(stdout);
-                buildProject();
-            });
-        } else {
-            exec(command + projectPath, function (err, stdout, stderr) {
-                if (err) {
-                    console.log(err);
-                }
-                if (stderr) {
-                    console.log(stderr);
-                }
-                if (err || stderr) {
-                    process.exit(1);
-                }
-                console.log(stdout);
-            });
-        }
-    }
-
-    buildProject();
 });
