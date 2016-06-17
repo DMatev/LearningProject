@@ -7,6 +7,7 @@ var exec = require('child_process').exec,
     nugetConfig,
     nugetRunner = require('nuget-runner'),
     path = require('path'),
+    projects,
     rimraf = require('rimraf'),
     SQLConfig;
 
@@ -14,16 +15,17 @@ nugetConfig = {
     packageVersion: '1.0.0',
     nugetSource: 'http://localhost:88/nuget/LearningProject-NuGet',
     apiKey: 'WhiteHatHackers',
-    nugetPath: path.join(__dirname, '../../../../Tools/nuget.exe'),
-    nugetPackages: [
-        'LearningProject.Core.Service',
-        'LearningProject.Core.Abstraction',
-        'LearningProject.Core.BusinessLogic',
-        'LearningProject.Core.Domain',
-        'LearningProject.Core.DTO',
-        'LearningProject.Core.Shared'
-    ]
+    nugetPath: path.join(__dirname, '../../../../Tools/nuget.exe')
 };
+
+projects = [
+    'LearningProject.Core.Service',
+    'LearningProject.Core.Abstraction',
+    'LearningProject.Core.BusinessLogic',
+    'LearningProject.Core.Domain',
+    'LearningProject.Core.DTO',
+    'LearningProject.Core.Shared'
+];
 
 nuget = nugetRunner({
     nugetPath: nugetConfig.nugetPath,
@@ -65,9 +67,9 @@ gulp.task('create-packages', function () {
         var projectPath;
 
         i++;
-        projectPath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i]);
+        projectPath = path.join(__dirname, '..\\' + projects[i]);
 
-        if (i < (nugetConfig.nugetPackages.length - 1)) {
+        if (i < (projects.length - 1)) {
             exec(command + projectPath, function (err, stdout, stderr) {
                 if (err) {
                     console.log(err);
@@ -95,7 +97,7 @@ gulp.task('create-packages', function () {
 });
 
 gulp.task('remove-nugetPackages', function () {
-    nugetConfig.nugetPackages.forEach(function (packageName) {
+    projects.forEach(function (packageName) {
         nuget.delete(packageName, nugetConfig.packageVersion);
     });
 });
@@ -107,9 +109,9 @@ gulp.task('upload-nugetPackages', function () {
         var packagePath;
 
         i++;
-        packagePath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i] + '\\bin\\Debug\\' + nugetConfig.nugetPackages[i] + '.' + nugetConfig.packageVersion + '.symbols.nupkg');
+        packagePath = path.join(__dirname, '..\\' + projects[i] + '\\bin\\Debug\\' + projects[i] + '.' + nugetConfig.packageVersion + '.symbols.nupkg');
 
-        if (i < (nugetConfig.nugetPackages.length - 1)) {
+        if (i < (projects.length - 1)) {
             nuget.push(packagePath).done(pushNugetPackage)
         } else {
             nuget.push(packagePath);
@@ -185,13 +187,26 @@ gulp.task('build', function () {
     var command = 'dotnet build ',
         i = -1;
 
+    exec('dotnet build', function (err, stdout, stderr) {
+        if (err) {
+            console.log(err);
+        }
+        if (stderr) {
+            console.log(stderr);
+        }
+        if (err || stderr) {
+            process.exit(1);
+        }
+        console.log(stdout);
+    });
+    
     function buildProject() {
         var projectPath;
 
         i++;
-        projectPath = path.join(__dirname, '..\\' + nugetConfig.nugetPackages[i]);
+        projectPath = path.join(__dirname, '..\\' + projects[i]);
 
-        if (i < (nugetConfig.nugetPackages.length - 1)) {
+        if (i < (projects.length - 1)) {
             exec(command + projectPath, function (err, stdout, stderr) {
                 if (err) {
                     console.log(err);
@@ -199,7 +214,7 @@ gulp.task('build', function () {
                 if (stderr) {
                     console.log(stderr);
                 }
-                if(err || stderr){
+                if (err || stderr) {
                     process.exit(1);
                 }
                 console.log(stdout);
@@ -213,7 +228,7 @@ gulp.task('build', function () {
                 if (stderr) {
                     console.log(stderr);
                 }
-                if(err || stderr){
+                if (err || stderr) {
                     process.exit(1);
                 }
                 console.log(stdout);
