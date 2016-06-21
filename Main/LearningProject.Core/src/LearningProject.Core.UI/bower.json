@@ -1,0 +1,23 @@
+{
+  "name": "LearningProject.Core.UI",
+  "homepage": "https://github.com/DMatev/LearningProject",
+  "authors": [
+    "DMatev <deyanmatev@gmail.com>"
+  ],
+  "dependencies": {
+    "angular": "1.5.7",
+    "bootstrap": "latest",
+    "angular-route": "1.5.7",
+    "angular-loading-bar": "0.9.0"
+  },
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

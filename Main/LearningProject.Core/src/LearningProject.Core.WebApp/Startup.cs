@@ -33,6 +33,8 @@ namespace LearningProject.Core.WebApp {
             loggerFactory.AddDebug();
 
             app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles(); 
         }
 
     }
