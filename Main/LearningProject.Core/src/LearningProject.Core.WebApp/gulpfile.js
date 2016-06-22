@@ -112,7 +112,7 @@ gulp.task('upload-nugetPackages', function () {
         packagePath = path.join(__dirname, '..\\' + projects[i] + '\\bin\\Debug\\' + projects[i] + '.' + nugetConfig.packageVersion + '.symbols.nupkg');
 
         if (i < (projects.length - 1)) {
-            nuget.push(packagePath).done(pushNugetPackage)
+            nuget.push(packagePath).done(pushNugetPackage);
         } else {
             nuget.push(packagePath);
         }
