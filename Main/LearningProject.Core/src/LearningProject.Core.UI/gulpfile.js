@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync'),
+    runSequence = require('run-sequence'),
     config;
 
 config = {
@@ -97,6 +98,13 @@ gulp.task('copy-app', function () {
         .pipe(gulp.dest(config.destinationPath));
 });
 
+gulp.task('browser-sync', function () {
+    browserSync.init({
+        proxy: "http://localhost:5000/",
+        port: 1337
+    });
+});
+
 gulp.task('watch:sass', function () {
     return watch(config.sass.srcPaths, function () {
         gulp.start('sass');
@@ -133,13 +141,6 @@ gulp.task('watch:app', function () {
     });
 });
 
-gulp.task('browser-sync', function () {
-    browserSync.init({
-        proxy: "http://localhost:5000/",
-        port: 1337
-    });
-});
-
 gulp.task('watch:browser-sync', function () {
     return watch(config.destinationPath, function () {
         browserSync.reload();
@@ -156,7 +157,10 @@ gulp.task('watch', [
     'watch:browser-sync']
 );
 
-gulp.task('default', [
-    'browser-sync',
-    'watch']
-);
+gulp.task('build', function () {
+    runSequence('sass', 'css-cm', 'js-cm', 'copy-assets', 'copy-html', 'copy-app');
+});
+
+gulp.task('default', function () {
+    runSequence('browser-sync', 'watch');
+});
