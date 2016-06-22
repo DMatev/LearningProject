@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('LearningProject.Core.Routes', [])
+angular.module('LearningProject.Core.Routes', ['ngRoute', 'LearningProject.Core.Home.Controller'])
     .config(['$routeProvider', function ($routeProvider) {
 
         $routeProvider
