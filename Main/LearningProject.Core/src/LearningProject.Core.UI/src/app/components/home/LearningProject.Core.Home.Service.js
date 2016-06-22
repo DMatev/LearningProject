@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('LearningProject.Core.HomeService', [])
-    .service('LearningProject.Core.HomeService', ['$http', '$q', function ($http, $q) {
+angular.module('LearningProject.Core.Home.Service', [])
+    .service('LearningProject.Core.Home.Service', ['$http', '$q', function ($http, $q) {
         return {
-            'test': function () {
+            test: function () {
                 var defer = $q.defer();
 
                 $http.get('/api/test')
@@ -12,6 +12,7 @@ angular.module('LearningProject.Core.HomeService', [])
                         defer.resolve(res);
                     })
                     .error(function (err) {
+                        console.log(err);
                         defer.reject(err);
                     });
 

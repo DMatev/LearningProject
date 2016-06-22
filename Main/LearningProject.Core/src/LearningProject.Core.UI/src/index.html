@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html ng-app="LearningProject.Core">
+<html ng-app="LearningProject.Core.Module">
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Learning Project</title>
@@ -10,13 +11,12 @@
     <script src="assets/libs/angular-route.min.js"></script>
     <script src="assets/libs/loading-bar.min.js"></script>
 
-    <!--<link rel="stylesheet" href="assets/css/main.css">-->
-    <script src="app/app.module.js"></script>
-    <script src="app/app.routes.js"></script>
-    <script src="app/components/home/homeController.js"></script>
-    <script src="app/components/home/homeService.js"></script>
+    <link rel="stylesheet" href="assets/css/LearningProject.Core.min.css">
+    <script src="app/LearningProject.Core.min.js"></script>
 </head>
+
 <body>
     <div ng-view></div>
 </body>
+
 </html>

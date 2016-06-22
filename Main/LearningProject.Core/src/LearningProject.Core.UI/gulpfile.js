@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     minifyCSS = require('gulp-minify-css'),
     watch = require('gulp-watch'),
+    sourcemaps = require('gulp-sourcemaps'),
     config;
 
 config = {
@@ -19,7 +20,7 @@ config = {
         srcPaths: [
             './src/app/*.js',
             './src/app/**/*.js'],
-        destinationPath: './dist/assets/js/'
+        destinationPath: './dist/app/'
     },
     css: {
         srcPaths: [
@@ -43,8 +44,13 @@ config = {
             './src/assets/img/*'],
         destinationPath: './dist/'
     },
-    basePath: './src',
-    srcPath: './src/**',
+    html: {
+        basePath: './src',
+        srcPath: './src/**/*.html',
+        destinationPath: './dist/'
+    },
+    basePath: './dist',
+    srcPath: './dist/**',
     destinationPath: '../LearningProject.Core.WebApp/wwwroot/'
 };
 
@@ -56,14 +62,16 @@ gulp.task('sass', function () {
 
 gulp.task('js-cm', function () {
     return gulp.src(config.js.srcPaths)
-        .pipe(concant('app.min.js'))
+        .pipe(sourcemaps.init())
+        .pipe(concant('LearningProject.Core.min.js'))
         .pipe(uglify())
+        .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(config.js.destinationPath));
 });
 
 gulp.task('css-cm', function () {
     return gulp.src(config.css.srcPaths)
-        .pipe(concant('main.min.css'))
+        .pipe(concant('LearningProject.Core.min.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest(config.css.destinationPath));
 });
@@ -78,6 +86,10 @@ gulp.task('copy-assets', function () {
         .pipe(gulp.dest(config.assets.destinationPath));
 });
 
+gulp.task('copy-html', function () {
+    return gulp.src(config.html.srcPath, { base: config.html.basePath })
+        .pipe(gulp.dest(config.html.destinationPath));
+});
 
 gulp.task('copy-app', function () {
     return gulp.src(config.srcPath, { base: config.basePath })
@@ -108,8 +120,14 @@ gulp.task('watch:assets', function () {
     });
 });
 
+gulp.task('watch:html', function () {
+    return watch(config.html.srcPath, function () {
+        gulp.start('copy-html');
+    });
+});
+
 gulp.task('watch:app', function () {
-    return watch(config.srcPath, function (){
+    return watch(config.srcPath, function () {
         gulp.start('copy-app');
     });
 });
@@ -119,5 +137,6 @@ gulp.task('watch', [
     'watch:css',
     'watch:js',
     'watch:assets',
+    'watch:html',
     'watch:app']
 );
