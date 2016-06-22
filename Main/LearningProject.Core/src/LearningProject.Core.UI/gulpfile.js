@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync'),
     config;
 
 config = {
@@ -132,11 +133,30 @@ gulp.task('watch:app', function () {
     });
 });
 
+gulp.task('browser-sync', function () {
+    browserSync.init({
+        proxy: "http://localhost:5000/",
+        port: 1337
+    });
+});
+
+gulp.task('watch:browser-sync', function () {
+    return watch(config.destinationPath, function () {
+        browserSync.reload();
+    });
+});
+
 gulp.task('watch', [
     'watch:sass',
     'watch:css',
     'watch:js',
     'watch:assets',
     'watch:html',
-    'watch:app']
+    'watch:app',
+    'watch:browser-sync']
+);
+
+gulp.task('default', [
+    'browser-sync',
+    'watch']
 );
