@@ -1,5 +1,7 @@
 <div class="container">
-  <p class="lead">{{test}}</p>
-
-  <button class="btn btn-primary" ng-click="clickMe()">Click me</button>
+  <p class="lead">{{home.test}}</p>
+  <button class="btn btn-primary" ng-click="home.setStorage('testKey', { test: 'testValue'})">Set storage</button>
+  <button class="btn btn-primary" ng-click="home.getStorage('testKey')">Get storage</button>
+  <button class="btn btn-primary" ng-click="home.removeStorage('testKey')">Remove storage</button>
+  <button class="btn btn-primary" ng-click="home.clearStorage()">Clear storage</button>  
 </div>
