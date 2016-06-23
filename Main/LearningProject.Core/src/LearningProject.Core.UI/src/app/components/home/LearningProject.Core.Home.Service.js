@@ -3,7 +3,7 @@
 
     angular
         .module('LearningProject.Core.Home.Service', [])
-        .factory('LearningProject.Core.Home.Service', homeService);
+        .factory('LearningProject.Core.Home.Service', homeService); //rename factoryName and use inject gulp
 
     homeService.$inject = ['$http', '$q'];
 
@@ -18,7 +18,7 @@
             var defer = $q.defer();
 
             $http.get('/api/test')
-                .success(function (res) {
+                .success(function (res) { //use then success and error are depricated
                     defer.resolve(res);
                 })
                 .error(function (err) {

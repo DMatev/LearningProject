@@ -10,7 +10,7 @@
     function HomeController(homeService, storageService, translationService) {
         var vm = this;
         console.log('getting the message');
-        translationService
+        translationService //change not to be promise or use ecma6
             .get('MissingLangauge')
             .then(function (missingLangauge) {
                 vm.test = missingLangauge;

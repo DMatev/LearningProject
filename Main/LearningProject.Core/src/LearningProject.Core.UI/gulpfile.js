@@ -62,7 +62,7 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(config.sass.destinationPath));
 });
 
-gulp.task('js-cm', function () {
+gulp.task('js-cm', function () { // dont concant and minify for development
     return gulp.src(config.js.srcPaths)
         .pipe(sourcemaps.init())
         .pipe(concant('LearningProject.Core.min.js'))
@@ -78,7 +78,7 @@ gulp.task('css-cm', function () {
         .pipe(gulp.dest(config.css.destinationPath));
 });
 
-gulp.task('copy-libs', function () {
+gulp.task('copy-libs', function () { //use wiredep instead
     return gulp.src(config.libs.srcPaths)
         .pipe(gulp.dest(config.libs.destinationPath));
 });
@@ -88,7 +88,7 @@ gulp.task('copy-assets', function () {
         .pipe(gulp.dest(config.assets.destinationPath));
 });
 
-gulp.task('copy-html', function () {
+gulp.task('copy-html', function () { //use gulp-ng-html2js instead
     return gulp.src(config.html.srcPath, { base: config.html.basePath })
         .pipe(gulp.dest(config.html.destinationPath));
 });
