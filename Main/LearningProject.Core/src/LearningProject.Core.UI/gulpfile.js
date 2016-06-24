@@ -62,7 +62,7 @@ config = {
     },
     html: {
         basePath: './src',
-        srcPath: ['./src/**/*.html', '!./src/index.html'], //exlude index.html
+        srcPath: ['./src/**/*.html', '!./src/index.html'],
         destinationPath: './dist/'
     },
     basePath: './dist',
