@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('LearningProject.Core.Storage.Service', [])
-        .factory('LearningProject.Core.Storage.Service', storageService);
+        .module('LearningProject.Core')
+        .factory('storageService', storageService);
 
     storageService.$inject = ['$q'];
 
@@ -32,12 +32,12 @@
 
             value = localStorage.getItem(key);
 
-            // if (value === null || value === undefined) {
-            //     // defer.reject('record with this key not found');
-            // } else {
+            if (value === null || value === undefined) {
+                defer.reject('record with this key not found');
+            } else {
                 value = JSON.parse(value);
                 defer.resolve(value);
-            // }
+            }
 
             return defer.promise;
         }
