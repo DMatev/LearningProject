@@ -3,22 +3,19 @@
 
     angular
         .module('LearningProject.Core')
-        .config(['$routeProvider', RouteConfig]);
+        .config(['$stateProvider', RouteConfig]);
 
-    function RouteConfig($routeProvider) { // use ui-router instead
+    function RouteConfig($stateProvider) {
         resolveInit.$inject = ['$q', 'initService'];
-        $routeProvider
-            .when('/', {
+        $stateProvider
+            .state('home', {
+                url: '/',
                 templateUrl: '/app/components/home/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm',
                 resolve: { /* @ngInject */
                     init: resolveInit
                 }
-            })
-            .otherwise({
-                redirectTo: '/',
-                caseInsensitiveMatch: true
             });
 
         function resolveInit($q, initService) {
