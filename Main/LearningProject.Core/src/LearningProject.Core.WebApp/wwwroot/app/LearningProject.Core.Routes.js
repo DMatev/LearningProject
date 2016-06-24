@@ -6,10 +6,10 @@
         .config(['$stateProvider', RouteConfig]);
 
     function RouteConfig($stateProvider) {
-        resolveInit.$inject = ['$q', 'initService'];
+        resolveInit.$inject = ['initService'];
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '',
                 templateUrl: '/app/components/home/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm',
@@ -18,7 +18,7 @@
                 }
             });
 
-        function resolveInit($q, initService) {
+        function resolveInit(initService) {
             return initService.run();
         }
     }
