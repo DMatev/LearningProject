@@ -14,7 +14,6 @@
                 resolve: { /* @ngInject */
                     init: resolveInit
                 }
-
             })
             .otherwise({
                 redirectTo: '/',

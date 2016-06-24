@@ -2,12 +2,14 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    concant = require('gulp-concat'),
+    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     minifyCSS = require('gulp-minify-css'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
     ngAnnotate = require('gulp-ng-annotate'),
+    ngHtml2Js = require('gulp-ng-html2js'),
+    minifyHtml = require('gulp-minify-html'),
     browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     config;
@@ -53,14 +55,14 @@ config = {
         srcDestinationPath: './src/libs/',
         distDestinationPath: './dist/libs/'
     },
-    assets: {
+    assetsAndIndex: {
         basePath: './src',
-        srcPaths: './src/assets/img/*',
+        srcPaths: ['./src/assets/img/*', './src/index.html'],
         destinationPath: './dist/'
     },
     html: {
         basePath: './src',
-        srcPath: './src/**/*.html',
+        srcPath: ['./src/**/*.html', '!./src/index.html'], //exlude index.html
         destinationPath: './dist/'
     },
     basePath: './dist',
@@ -74,16 +76,16 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(config.sass.destinationPath));
 });
 
-gulp.task('js', function () { // gulp-ng-annotate
+gulp.task('js', function () {
     return gulp.src(config.js.srcPaths, { base: config.js.basePath })
-        .pipe(ngAnnotate({remove: true,add: true, single_quotes: true}))
+        .pipe(ngAnnotate({ remove: true, add: true, single_quotes: true }))
         .pipe(gulp.dest(config.js.destinationPath));
 });
 
 gulp.task('js-cm', function () {
     return gulp.src(config.cmJs.srcPaths)
         .pipe(sourcemaps.init())
-        .pipe(concant('LearningProject.Core.min.js'))
+        .pipe(concat('LearningProject.Core.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write(config.cmJs.mapsPath))
         .pipe(gulp.dest(config.cmJs.destinationPath));
@@ -92,10 +94,26 @@ gulp.task('js-cm', function () {
 gulp.task('css-cm', function () {
     return gulp.src(config.cmCss.srcPaths)
         .pipe(sourcemaps.init())
-        .pipe(concant('LearningProject.Core.min.css'))
+        .pipe(concat('LearningProject.Core.min.css'))
         .pipe(minifyCSS())
         .pipe(sourcemaps.write(config.cmCss.mapsPath))
         .pipe(gulp.dest(config.cmCss.destinationPath));
+});
+
+gulp.task('html-cm', function () {
+    return gulp.src(config.html.srcPath)
+        .pipe(minifyHtml({
+            empty: true,
+            squre: true,
+            quotes: true
+        }))
+        .pipe(ngHtml2Js({
+            moduleName: 'LearningProject.Core.Templates',
+            prefix: '/'
+        }))
+        .pipe(concat('partials.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-libs-src', function () {
@@ -108,19 +126,17 @@ gulp.task('copy-libs-dist', function () {
         .pipe(gulp.dest(config.libs.distDestinationPath));
 });
 
-gulp.task('copy-assets', function () {
-    return gulp.src(config.assets.srcPaths, { base: config.assets.basePath })
-        .pipe(gulp.dest(config.assets.destinationPath));
-});
-
-gulp.task('copy-html', function () { //use gulp-ng-html2js instead
-    return gulp.src(config.html.srcPath, { base: config.html.basePath })
-        .pipe(gulp.dest(config.html.destinationPath));
+gulp.task('copy-assetsAndIndex', function () {
+    return gulp.src(config.assetsAndIndex.srcPaths, { base: config.assetsAndIndex.basePath })
+        .pipe(gulp.dest(config.assetsAndIndex.destinationPath));
 });
 
 gulp.task('copy-app', function () {
     return gulp.src(config.srcPath, { base: config.basePath })
-        .pipe(gulp.dest(config.destinationPath));
+        .pipe(gulp.dest(config.destinationPath))
+        .on('finish', function () {
+            browserSync.reload();
+        });
 });
 
 gulp.task('browser-sync', function () {
@@ -142,15 +158,15 @@ gulp.task('watch:js', function () {
     });
 });
 
-gulp.task('watch:assets', function () {
-    return watch(config.assets.srcPaths, function () {
-        gulp.start('copy-assets');
+gulp.task('watch:assetsAndIndex', function () {
+    return watch(config.assetsAndIndex.srcPaths, function () {
+        gulp.start('copy-assetsAndIndex');
     });
 });
 
 gulp.task('watch:html', function () {
     return watch(config.html.srcPath, function () {
-        gulp.start('copy-html');
+        gulp.start('html-cm');
     });
 });
 
@@ -160,23 +176,16 @@ gulp.task('watch:app', function () {
     });
 });
 
-gulp.task('watch:browser-sync', function () {
-    return watch(config.destinationPath, function () {
-        browserSync.reload();
-    });
-});
-
 gulp.task('watch', [
     'watch:sass',
     'watch:js',
-    'watch:assets',
+    'watch:assetsAndIndex',
     'watch:html',
-    'watch:app',
-    'watch:browser-sync']
+    'watch:app']
 );
 
 gulp.task('build', function () {
-    runSequence('sass', 'js', 'copy-libs-src', 'copy-libs-dist', 'copy-assets', 'copy-html', 'copy-app');
+    runSequence('sass', 'js', 'copy-libs-src', 'html-cm', 'copy-libs-dist', 'copy-assetsAndIndex', 'copy-app');
 });
 
 gulp.task('default', function () {
