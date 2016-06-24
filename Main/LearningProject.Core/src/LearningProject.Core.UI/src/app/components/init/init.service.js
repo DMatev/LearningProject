@@ -5,8 +5,7 @@
         .module('LearningProject.Core')
         .factory('initService', initService);
 
-    initService.$inject = ['$q', 'storageService', 'translateService'];
-
+    /* @ngInject */
     function initService($q, storageService, translateService) {
         var initService = {
             run: run

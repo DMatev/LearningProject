@@ -1,12 +1,12 @@
 (function () {
     'use strict';
 
+    storageService.$inject = ['$q'];
     angular
         .module('LearningProject.Core')
         .factory('storageService', storageService);
 
-    storageService.$inject = ['$q'];
-
+    /* @ngInject */
     function storageService($q) {
         var storageService = {
             set: set,

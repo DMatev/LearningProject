@@ -5,8 +5,7 @@
         .module('LearningProject.Core')
         .factory('translateService', translateService);
 
-    translateService.$inject = ['$http', '$q'];
-
+    /* @ngInject */
     function translateService($http, $q) {
         var translations = {},
             translateService = {

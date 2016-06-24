@@ -11,7 +11,7 @@
                 templateUrl: '/app/components/home/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm',
-                resolve: {
+                resolve: { /* @ngInject */
                     init: resolveInit
                 }
 
@@ -21,15 +21,8 @@
                 caseInsensitiveMatch: true
             });
 
-        resolveInit.$inject = ['$q', 'initService'];
-
         function resolveInit($q, initService) {
             return initService.run();
-            // return $q(function (success, error) {
-            //     initService
-            //         .run()
-            //         .finally(function () { success(); });
-            // });
         }
     }
 

@@ -5,8 +5,7 @@
         .module('LearningProject.Core')
         .factory('storageService', storageService);
 
-    storageService.$inject = ['$q'];
-
+    /* @ngInject */
     function storageService($q) {
         var storageService = {
             set: set,

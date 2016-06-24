@@ -5,11 +5,10 @@
         .module('LearningProject.Core')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['homeService', 'storageService', 'translateService'];
-
-    function HomeController(homeService, storageService, translationService) {
+    /* @ngInject */
+    function HomeController(homeService, storageService, translateService) {
         var vm = this;
-        vm.test = translationService.get('MissingLangauge');
+        vm.test = translateService.get('MissingLangauge');
     }
 
 })();

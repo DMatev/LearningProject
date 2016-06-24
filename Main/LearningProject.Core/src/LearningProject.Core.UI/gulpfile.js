@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
+    ngAnnotate = require('gulp-ng-annotate'),
     browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     config;
@@ -75,6 +76,7 @@ gulp.task('sass', function () {
 
 gulp.task('js', function () { // gulp-ng-annotate
     return gulp.src(config.js.srcPaths, { base: config.js.basePath })
+        .pipe(ngAnnotate({remove: true,add: true, single_quotes: true}))
         .pipe(gulp.dest(config.js.destinationPath));
 });
 
