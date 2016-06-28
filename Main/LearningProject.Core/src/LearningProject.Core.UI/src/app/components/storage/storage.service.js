@@ -29,7 +29,7 @@
             var value,
                 defer = $q.defer();
 
-            value = localStorage.getItem(5);
+            value = localStorage.getItem(key);
 
             if (value === null || value === undefined) {
                 defer.reject('record with this key not found');
