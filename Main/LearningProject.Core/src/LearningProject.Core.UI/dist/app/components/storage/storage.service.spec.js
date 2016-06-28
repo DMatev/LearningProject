@@ -3,7 +3,6 @@
 describe('Storage service', function () {
     var storageService;
 
-
     beforeEach(angular.mock.module('LearningProject.Core'));
     beforeEach(angular.mock.inject(function (_storageService_) {
         storageService = _storageService_;
@@ -12,9 +11,7 @@ describe('Storage service', function () {
 
     it('should get element from storage', function () {
         var key = 'testKey',
-            store = {
-                testKey: 'testValue'
-            };
+            store = {};
 
         spyOn(localStorage, 'getItem').and.callFake(function (key) {
             return store[key];
