@@ -1,107 +1,109 @@
-'use strict';
+(function () {
+    'use strict';
 
-describe('Storage service', function () {
-    var storageService,
-        $rootScope,
-        $httpBackend,
-        testKey = 'testKey',
-        testValue = 'testValue',
-        store;
+    describe('Storage service', function () {
+        var storageService,
+            $rootScope,
+            $httpBackend,
+            testKey = 'testKey',
+            testValue = 'testValue',
+            store;
 
-    beforeEach(angular.mock.module('LearningProject.Core'));
-    beforeEach(angular.mock.inject(function (_storageService_, _$rootScope_, _$httpBackend_) {
-        storageService = _storageService_;
-        $rootScope = _$rootScope_;
-        $httpBackend = _$httpBackend_;
+        beforeEach(angular.mock.module('LearningProject.Core'));
+        beforeEach(angular.mock.inject(function (_storageService_, _$rootScope_, _$httpBackend_) {
+            storageService = _storageService_;
+            $rootScope = _$rootScope_;
+            $httpBackend = _$httpBackend_;
 
-        $httpBackend
-            .expectGET('/api/translation/1')
-            .respond(200);
-            
-        store = {};
-    }));
+            $httpBackend
+                .when('GET', '/api/translation/1')
+                .respond(200);
 
-    it('should get element from storage', function () {
-        store = {
-            testKey: JSON.stringify(testValue)
-        };
+            store = {};
+        }));
 
-        spyOn(localStorage, 'getItem').and.callFake(function (key) {
-            return store[key];
+        it('should get element from storage', function () {
+            store = {
+                testKey: JSON.stringify(testValue)
+            };
+
+            spyOn(localStorage, 'getItem').and.callFake(function (key) {
+                return store[key];
+            });
+
+            storageService.get(testKey)
+                .then(function (value) {
+                    expect(value).toEqual(testValue);
+                });
+
+            $rootScope.$digest();
+            expect(angular.isFunction(storageService.get)).toBe(true);
+            expect(localStorage.getItem).toHaveBeenCalledWith(testKey);
         });
 
-        storageService.get(testKey)
-            .then(function (value) {
-                expect(value).toEqual(testValue);
+        it('should fail at getting element from storage', function () {
+            var incorrectKey = 'incorrectKey';
+
+            store = {
+                testKey: JSON.stringify(testValue)
+            };
+
+            spyOn(localStorage, 'getItem').and.callFake(function (incorrectKey) {
+                return store[incorrectKey];
             });
 
-        $rootScope.$digest();
-        expect(angular.isFunction(storageService.get)).toBe(true);
-        expect(localStorage.getItem).toHaveBeenCalledWith(testKey);
-    });
+            storageService.get(incorrectKey)
+                .catch(function (err) {
+                    expect(err).toEqual('record with this key not found');
+                });
 
-    it('should fail at getting element from storage', function () {
-        var incorrectKey = 'incorrectKey';
-
-        store = {
-            testKey: JSON.stringify(testValue)
-        };
-
-        spyOn(localStorage, 'getItem').and.callFake(function (incorrectKey) {
-            return store[incorrectKey];
+            $rootScope.$digest();
+            expect(angular.isFunction(storageService.get)).toBe(true);
+            expect(localStorage.getItem).toHaveBeenCalledWith(incorrectKey);
         });
 
-        storageService.get(incorrectKey)
-            .catch(function (err) {
-                expect(err).toEqual('record with this key not found');
-            });
+        it('should set element to storage', function () {
+            spyOn(localStorage, 'setItem');
 
-        $rootScope.$digest();
-        expect(angular.isFunction(storageService.get)).toBe(true);
-        expect(localStorage.getItem).toHaveBeenCalledWith(incorrectKey);
+            storageService.set(testKey, testValue)
+                .then(function (value) {
+                    expect(value).toEqual(undefined);
+                });
+
+            $rootScope.$digest();
+            expect(angular.isFunction(storageService.set)).toBe(true);
+            expect(localStorage.setItem).toHaveBeenCalledWith(testKey, JSON.stringify(testValue));
+        });
+
+        it('should remove element from storage', function () {
+            store = {
+                testKey: JSON.stringify(testValue)
+            };
+
+            spyOn(localStorage, 'removeItem');
+
+            storageService.remove(testKey)
+                .then(function (value) {
+                    expect(value).toEqual(undefined);
+                });
+
+            $rootScope.$digest();
+            expect(angular.isFunction(storageService.remove)).toBe(true);
+            expect(localStorage.removeItem).toHaveBeenCalledWith(testKey);
+        });
+
+        it('should clear all elements from storage', function () {
+            spyOn(localStorage, 'clear');
+
+            storageService.clear()
+                .then(function (value) {
+                    expect(value).toEqual(undefined);
+                });
+
+            $rootScope.$digest();
+            expect(angular.isFunction(storageService.clear)).toBe(true);
+            expect(localStorage.clear).toHaveBeenCalledWith();
+        });
+
     });
-
-    it('should set element to storage', function () {
-        spyOn(localStorage, 'setItem');
-
-        storageService.set(testKey, testValue)
-            .then(function (value) {
-                expect(value).toEqual(undefined);
-            });
-
-        $rootScope.$digest();
-        expect(angular.isFunction(storageService.set)).toBe(true);
-        expect(localStorage.setItem).toHaveBeenCalledWith(testKey, JSON.stringify(testValue));
-    });
-
-    it('should remove element from storage', function () {
-        store = {
-            testKey: JSON.stringify(testValue)
-        };
-
-        spyOn(localStorage, 'removeItem');
-
-        storageService.remove(testKey)
-            .then(function (value) {
-                expect(value).toEqual(undefined);
-            });
-
-        $rootScope.$digest();
-        expect(angular.isFunction(storageService.remove)).toBe(true);
-        expect(localStorage.removeItem).toHaveBeenCalledWith(testKey);
-    });
-
-    it('should clear all elements from storage', function () {
-        spyOn(localStorage, 'clear');
-
-        storageService.clear()
-            .then(function (value) {
-                expect(value).toEqual(undefined);
-            });
-
-        $rootScope.$digest();
-        expect(angular.isFunction(storageService.clear)).toBe(true);
-        expect(localStorage.clear).toHaveBeenCalledWith();
-    });
-
-});
+})();
