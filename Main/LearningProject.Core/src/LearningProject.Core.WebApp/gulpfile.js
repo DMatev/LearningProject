@@ -22,6 +22,7 @@ projects = [
     'LearningProject.Core.Service',
     'LearningProject.Core.Abstraction',
     'LearningProject.Core.BusinessLogic',
+    'LearningProject.Core.Repository',
     'LearningProject.Core.Domain',
     'LearningProject.Core.DTO',
     'LearningProject.Core.Shared'
