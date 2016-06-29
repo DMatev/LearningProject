@@ -17,7 +17,7 @@ namespace LearningProject.Core.WebApp.Controllers {
 
         [HttpGet]
         public async Task<IEnumerable<LanguageDTO>> Get() {
-            var languages = await _messagesService.GetLanguages();
+            var languages = await _messagesService.GetLanguagesAsync();
             return languages;
         }
     }

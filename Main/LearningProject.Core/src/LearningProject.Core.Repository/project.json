@@ -1,18 +1,17 @@
-﻿{
+{
   "version": "1.0.0-*",
-  "description": "LearningProject.Core.BusinessLogic",
+  "description": "LearningProject.Core.Repository",
   "authors": [ "deyan" ],
-
+  
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0-rc2-3002702",
       "type": "platform"
     },
-    "LearningProject.Core.DTO": "1.0.0-*",
-    "LearningProject.Core.Repository": "1.0.0-*",
-    "LearningProject.Core.Shared": "1.0.0-*"
+    "LearningProject.Core.Domain": "1.0.0-*",
+    "LearningProject.Core.DTO": "1.0.0-*"
   },
-
+  
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-preview1-final",
@@ -31,6 +30,6 @@
   },
   
   "buildOptions": {
-     "debugType": "portable"
+    "debugType": "portable"
   }
 }

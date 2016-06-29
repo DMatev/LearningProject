@@ -17,14 +17,14 @@ namespace LearningProject.Core.Service.Messages.Implementations
             _messagesBussinessLogic = messagesBussinessLogic;
         }
 
-        public async Task<IEnumerable<LanguageDTO>> GetLanguages() {
-            var languages = await _messagesBussinessLogic.GetLanguages();
+        public async Task<IEnumerable<LanguageDTO>> GetLanguagesAsync() {
+            var languages = await _messagesBussinessLogic.GetLanguagesAsync();
             return languages;
         }
 
-        public async Task<IEnumerable<TranslationDTO>> GetTranslations(byte languageID) {
+        public async Task<IEnumerable<TranslationDTO>> GetTranslationsAsync(byte languageID) {
             _messageValidator.ValidateLangauge(languageID);
-            var translations = await _messagesBussinessLogic.GetTranslations(languageID);
+            var translations = await _messagesBussinessLogic.GetTranslationsAsync(languageID);
             return translations;
         }
     }
