@@ -8,7 +8,6 @@ var exec = require('child_process').exec,
     nugetRunner = require('nuget-runner'),
     path = require('path'),
     projects,
-    rimraf = require('rimraf'),
     SQLConfig;
 
 nugetConfig = {
@@ -41,24 +40,6 @@ SQLConfig = {
         return 'sqlcmd -S ' + this.server + ' -E -i ' + sqlFile;
     }
 };
-
-gulp.task('clear-cache', function () {
-    var dnxPath = process.env.USERPROFILE + '\\.dnx\\packages\\LearningProject.Core';
-
-    exec('dnu clear-http-cache', function (err, stdout, stderr) {
-        if (err) {
-            console.log(err);
-        }
-        if (stderr) {
-            console.log(stderr);
-        }
-    });
-    rimraf(dnxPath, function () {
-        rimraf(dnxPath + '.*', function () {
-            console.log('cache cleaned');
-        });
-    });
-});
 
 gulp.task('create-packages', function () {
     var command = 'dotnet pack ',
