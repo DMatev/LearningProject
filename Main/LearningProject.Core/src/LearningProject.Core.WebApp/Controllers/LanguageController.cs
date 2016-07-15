@@ -6,17 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LearningProject.Core.WebApp.Controllers {
+namespace LearningProject.Core.WebApp.Controllers
+{
     [Route("api/[controller]")]
-    public class LanguageController : BaseController {
+    public class LanguageController : BaseController
+    {
         private readonly IMessagesService _messagesService;
 
-        public LanguageController(IMessagesService messagesService, IOperationResult operationResult) : base(operationResult) {
+        public LanguageController(IMessagesService messagesService, IOperationResult operationResult) : base(operationResult)
+        {
             _messagesService = messagesService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<LanguageDTO>> Get() {
+        public async Task<IEnumerable<LanguageDTO>> Get()
+        {
             var languages = await _messagesService.GetLanguagesAsync();
             return languages;
         }

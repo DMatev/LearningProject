@@ -1,52 +1,36 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "LearningProject.Core.Domain",
-  "authors": [ "deyan" ],
-
+  "authors": [
+    "DMatev"
+  ],
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
+      "version": "1.0.0",
       "type": "platform"
     },
-    "Microsoft.CSharp": "4.0.1-rc2-24027",
-    "System.Collections": "4.0.11-rc2-24027",
-    "System.Linq": "4.1.0-rc2-24027",
-    "System.Runtime": "4.1.0-rc2-24027",
-    "System.Threading": "4.0.11-rc2-24027",
-    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview1-final",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final",
-    "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
-  },
-
-  "tools": {
-    "Microsoft.EntityFrameworkCore.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": [
-        "portable-net45+win8+dnxcore50",
-        "portable-net45+win8"
-      ]
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
+    "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Design": {
+      "type": "build",
+      "version": "1.0.0-preview2-final"
     }
   },
-
+  "tools": {
+    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
+  },
   "frameworks": {
     "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50",
-        "portable-net45+win8"
-      ]
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.0",
+          "type": "platform"
+        }
+      }
     }
   },
-  
   "buildOptions": {
-     "debugType": "portable"
-  },
-
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "Data Source=localhost;Initial Catalog=LearningProject.Core;Integrated Security=True"
-    }
+    "emitEntryPoint": true,
+    "debugType": "portable"
   }
 }

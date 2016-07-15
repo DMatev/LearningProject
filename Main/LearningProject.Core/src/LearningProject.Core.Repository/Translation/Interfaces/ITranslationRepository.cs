@@ -7,8 +7,8 @@ namespace LearningProject.Core.Repository.Translation.Interfaces
 {
     public interface ITranslationRepository
     {
-        Task<IEnumerable<Domain.Data.Translation>> RetrieveTranslationsAsync(Expression<Func<Domain.Data.Translation, bool>> predicate);
-        Task<IEnumerable<Domain.Data.Translation>> RetrieveTranslationsAsync();
+        Task<IEnumerable<Domain.Models.Translation>> RetrieveTranslationsAsync(Expression<Func<Domain.Models.Translation, bool>> predicate);
+        Task<IEnumerable<Domain.Models.Translation>> RetrieveTranslationsAsync();
 
     }
 }

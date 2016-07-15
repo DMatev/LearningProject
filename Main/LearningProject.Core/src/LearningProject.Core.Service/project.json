@@ -1,36 +1,23 @@
 {
   "version": "1.0.0-*",
   "description": "LearningProject.Core.Service",
-  "authors": [ "DMatev" ],
-
+  "authors": [
+    "DMatev"
+  ],
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
+      "version": "1.0.0",
       "type": "platform"
     },
     "LearningProject.Core.Abstraction": "1.0.0-*",
     "LearningProject.Core.BusinessLogic": "1.0.0-*",
     "LearningProject.Core.DTO": "1.0.0-*",
-    "LearningProject.Core.Shared": "1.0.0-*" },
-
-  "tools": {
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
+    "LearningProject.Core.Shared": "1.0.0-*"
   },
-
   "frameworks": {
-    "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50",
-        "portable-net45+win8"
-      ]
-    }
+    "netcoreapp1.0": {}
   },
-  
   "buildOptions": {
-     "debugType": "portable"
+    "debugType": "portable"
   }
 }

@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Builder;
 
 namespace LearningProject.Core.WebApp
 {
-    public class Program {
-        public static void Main(string[] args) {
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
             var host = new WebHostBuilder()
-                .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
+                .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();
 

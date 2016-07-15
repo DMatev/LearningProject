@@ -1,4 +1,4 @@
-using LearningProject.Core.Domain.Data;
+using LearningProject.Core.Domain.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LearningProject.Core.Repository.Dependency
@@ -7,7 +7,7 @@ namespace LearningProject.Core.Repository.Dependency
     {
         public void Register(IServiceCollection services)
         {
-            services.AddTransient<LearningProjectContext>();
+            services.AddTransient<LearningProject_CoreContext>();
         }
     }
 }

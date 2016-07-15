@@ -26,8 +26,8 @@ namespace LearningProject.Core.BusinessLogic.Messages.Implementations
             var langauges = await _languageRepository.RetrieveLanguagesAsync();
             var mappedLanguages = langauges.Select(x => new LanguageDTO
             {
-                LanguageID = x.LanguageID,
-                CountryISOCode = x.CountryISOCode
+                LanguageID = x.LanguageId,
+                CountryISOCode = x.CountryIsocode
             });
 
             return mappedLanguages;
@@ -35,15 +35,15 @@ namespace LearningProject.Core.BusinessLogic.Messages.Implementations
 
         public async Task<IEnumerable<TranslationDTO>> GetTranslationsAsync(byte languageID)
         {
-            var translations = await _translationRepository.RetrieveTranslationsAsync(t => t.LanguageID == languageID);
-            var mappedTranslations = translations.Select(x => new TranslationDTO {
+            var translations = await _translationRepository.RetrieveTranslationsAsync(t => t.LanguageId == languageID);
+            var mappedTranslations = translations.Select(x => new TranslationDTO
+            {
                 MessageCode = x.MessageCode,
                 Content = x.Content,
-                LanguageID = x.LanguageID,
+                LanguageID = x.LanguageId,
             });
 
             return mappedTranslations;
         }
-
     }
 }

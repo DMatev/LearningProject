@@ -1,5 +1,5 @@
 
-using LearningProject.Core.Domain.Data;
+using LearningProject.Core.Domain.Models;
 using LearningProject.Core.Repository.Translation.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,19 +12,19 @@ namespace LearningProject.Core.Repository.Translation.Implementations
 {
     public class TranslationRepository : ITranslationRepository
     {
-        private readonly LearningProjectContext _context;
-        public TranslationRepository(LearningProjectContext learningProjectContext)
+        private readonly LearningProject_CoreContext _context;
+        public TranslationRepository(LearningProject_CoreContext learningProjectContext)
         {
             _context = learningProjectContext;
         }
 
-        public async Task<IEnumerable<Domain.Data.Translation>> RetrieveTranslationsAsync(Expression<Func<Domain.Data.Translation, bool>> predicate)
+        public async Task<IEnumerable<Domain.Models.Translation>> RetrieveTranslationsAsync(Expression<Func<Domain.Models.Translation, bool>> predicate)
         {
             var translations = await _context.Translation.Where(predicate).ToListAsync();
 
             return translations;
         }
-        public async Task<IEnumerable<Domain.Data.Translation>> RetrieveTranslationsAsync()
+        public async Task<IEnumerable<Domain.Models.Translation>> RetrieveTranslationsAsync()
         {
             var translations = await _context.Translation.ToListAsync();
 

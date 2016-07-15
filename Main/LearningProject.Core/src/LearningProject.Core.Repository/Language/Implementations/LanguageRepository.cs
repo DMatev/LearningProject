@@ -1,5 +1,5 @@
 
-using LearningProject.Core.Domain.Data;
+using LearningProject.Core.Domain.Models;
 using LearningProject.Core.Repository.Language.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,18 +12,18 @@ namespace LearningProject.Core.Repository.Language.Implementations
 {
     public class LanguageRepository : ILanguageRepository
     {
-        private readonly LearningProjectContext _context;
-        public LanguageRepository(LearningProjectContext learningProjectContext)
+        private readonly LearningProject_CoreContext _context;
+        public LanguageRepository(LearningProject_CoreContext learningProjectContext)
         {
             _context = learningProjectContext;
         }
 
-        public async Task<IEnumerable<Domain.Data.Language>> RetrieveLanguagesAsync(Expression<Func<Domain.Data.Language, bool>> predicate)
+        public async Task<IEnumerable<Domain.Models.Language>> RetrieveLanguagesAsync(Expression<Func<Domain.Models.Language, bool>> predicate)
         {
             var languages = await _context.Language.Where(predicate).ToListAsync();
             return languages;
         }
-        public async Task<IEnumerable<Domain.Data.Language>> RetrieveLanguagesAsync()
+        public async Task<IEnumerable<Domain.Models.Language>> RetrieveLanguagesAsync()
         {
             var languages = await _context.Language.ToListAsync();
             return languages;
