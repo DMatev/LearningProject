@@ -5,10 +5,6 @@
     "DMatev"
   ],
   "dependencies": {
-    "Microsoft.NETCore.App": {
-      "version": "1.0.0",
-      "type": "platform"
-    },
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
     "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.0.0",
     "Microsoft.EntityFrameworkCore.Design": {
